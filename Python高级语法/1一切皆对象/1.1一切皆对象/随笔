@@ -1,0 +1,36 @@
+语言功底是大于框架的
+
+在后端中
+    所谓静态语言和动态语言在于 使用类型的时候 是提前定义好的(强类型语言,静态语言) 还是可以随便改的(弱类型语言,动态语言)
+在前端中
+    类中的还区分有 静态方法和动态方法
+
+面向对象的重温
+    python的面向对象要更加彻底
+    python中函数和类都是对象 代码和模块也是对象
+    在其他语言中 有class和object   object是class的实例而已
+    根据类生成对象  类是模板对象 根据模板对象生成对象
+
+def ask(name="boby"):
+    print(name)
+
+class Person:
+    def __init__(self):
+        print('bobby')
+
+对象可以赋值给一个变量
+    my_func=ask
+    my_class = Person
+
+可以放进一个数组,也可以添加到集合中
+（https://www.runoob.com/python3/python3-set.html）
+对集合的操作可以看这个网址
+    obj_list.append(ask)
+    obj_list.append(Person)
+
+可以作为函数的返回值 可以作为参数传递给函数(装饰器的原理)
+    def decorator_func():
+        print("desc")
+        return ask
+    ma = decorator_func()
+    ma()
