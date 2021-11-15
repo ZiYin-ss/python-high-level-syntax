@@ -80,5 +80,6 @@ if __name__ == '__main__':
     （4）如果User有__getattr__方法，调用__getattr__方法，否则
     
     （5）抛出AttributeError
-
+    
+    这个是python所有ORM的基础
 '''
