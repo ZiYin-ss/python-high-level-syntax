@@ -32,10 +32,7 @@ class User(metaclass=Metaclass):
         metaclass=Metaclass
         第一点创建类的类(Metaclass继承type类) 然后这个类就是元类可以用来创建类
         第二点是用来控制User类(那个类的metaclass指向那个类)的实例化的过程
-            创建User的时候使用那个元类  这个User实例化的过程 不是User的实例化 
-            而是创建这个类(User)是type的实例化 type就是创建类的呗(类也是一个对象 是这个意思)
-            User类的实例化说的是 对于type来说 创建了一个对象  
-            就是一句话 这个控制创建类的过程
+           user = User() 说的是这个时候 
             
     python中类的实例化的过程 会首先寻找metaclass 通过metaclass去创建user类
         type去创建类对象 
