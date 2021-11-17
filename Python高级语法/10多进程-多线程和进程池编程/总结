@@ -1,0 +1,37 @@
+多线程多进程总结
+    多线程
+        多线程任务层面
+            Threading.Thread
+            这个是实现任务层面的多线程 开多个任务
+
+        多线程的线程间通信
+            共享变量和Queue
+
+        多线程的同步
+            Lock Rlock Condition Semaphore
+
+        各线程之间用自己的数据
+            ThreadLocal
+            进程没有 因为数据本身是隔离的
+
+        线程池
+            threadpool.ThreadPool ThreadPoolExecutor(concurrent.futures)
+
+    多进程
+        多进程任务层面
+            multiprocessing.Process
+            这个是实现任务层面的多进程
+
+        多进程同步
+            也是lock之类的 用到时候再说 也是锁住使用
+
+        多进程通信
+            pipe  Manager().queue()  multiprocessing.queue  共享内存
+
+        进程池
+            multiprocessing.Pool ProcessPoolExecutor(concurrent.futures)
+
+
+
+这个说完了不代表多线程没有了 还有wait()阻塞 信号之类的
+多进程和多线程的代码 写 if __name__== "__main__"里面 要不然有问题
