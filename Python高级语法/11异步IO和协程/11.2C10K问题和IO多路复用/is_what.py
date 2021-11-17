@@ -4,7 +4,7 @@ pass
     C10K
         如何在一颗1Ghz CPU 2g内存 1gbps网络环境下 让单台服务器同时为一万个客户端提供FTP服务
     阻塞式IO中 
-        CPU是空闲的
+        CPU是空闲的 
     非阻塞式的IO
         client.setblocking(False) 这个是建立socket的时候不管他建立好连接没 就直接返回
         不停的询问连接是否建立好 需要while循环不停的去检查状态
