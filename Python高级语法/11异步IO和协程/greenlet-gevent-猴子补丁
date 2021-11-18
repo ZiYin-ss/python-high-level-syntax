@@ -1,0 +1,103 @@
+https://www.cnblogs.com/coder-qi/p/10163416.html
+协程中的greenlet gevent 以及猴子补丁都在这里面
+
+
+这个是实现简单的协程  还是用了 yield 暂停执行其他的
+    import time
+
+    def test1():
+        while True:
+            print("--test1--")
+            yield
+            time.sleep(0.5)
+
+    def test2():
+        while True:
+            print("--test2--")
+            yield
+            time.sleep(0.5)
+
+    if __name__ == "__main__":
+        t1 = test1()
+        t2 = test2()
+        while True:
+            next(t1)
+            next(t2)
+
+greenlet实现协程
+    import time
+    from greenlet import greenlet
+
+    def test1():
+        while True:
+            print("--test1--")
+            g2.switch()
+            time.sleep(0.5)
+
+    def test2():
+        while True:
+            print("--test2--")
+            g1.switch()
+            time.sleep(0.5)
+
+    g1 = greenlet(test1)
+    g2 = greenlet(test2)
+
+    g1.switch()
+    greenlet已经实现了协程，但是这个还的人工切换
+    其原理是当一个greenlet遇到IO(指的是input output 输入输出，比如网络、文件操作等)操作时，
+    比如访问网络，就自动切换到其他的greenlet，等到IO操作完成，再在适当的时候切换回来继续执行。
+    由于IO操作非常耗时，经常使程序处于等待状态，有了gevent为我们自动切换协程，就保证总有greenlet在运行，而不是等待IO。
+
+gevent的使用
+    import gevent
+
+    def test(n):
+        for i in range(n):
+            print(gevent.getcurrent(), i)
+            gevent.sleep(0.5)  加上一个这个就可以实现了协程切换执行
+
+    g1 = gevent.spawn(test, 5)
+    g2 = gevent.spawn(test, 5)
+    g3 = gevent.spawn(test, 5)
+
+    g1.join()
+    g2.join()
+    g3.join()
+
+
+给程序打补丁(猴子补丁)
+    import time
+    import gevent
+    from gevent import monkey
+
+    monkey.patch_all() # 讲程序中用到的耗时的代码，换为gevent中实现的代码
+
+    def test(n):
+        for i in range(n):
+            print(gevent.getcurrent(), i)
+            time.sleep(0.5)
+
+    # g1 = gevent.spawn(test, 5)
+    # g2 = gevent.spawn(test, 5)
+    # g3 = gevent.spawn(test, 5)
+
+    # g1.join()
+    # g2.join()
+    # g3.join()
+
+    gevent.joinall([
+        gevent.spawn(test, 5),
+        gevent.spawn(test, 5),
+        gevent.spawn(test, 5)
+    ])
+
+这三个东西用法都不难 你看这里面都是print sleep之类的 假如换成我们自己的逻辑
+比如socket请求 文件IO输出  我们写个函数 然后去里面执行 不就可以了吗
+但是有不好的地方 这个说到底 是我们多线程多进程的编程方式
+greenlet switch
+geven.sleep
+monkey.patch_all() --> joinall
+
+
+async await 还是牛逼
