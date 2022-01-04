@@ -1,6 +1,5 @@
 
 from collections import abc
-
 """
     Sequence 不可变序列类型中的一个
         魔法函数构成序列协议 满足这样那样的魔法函数
