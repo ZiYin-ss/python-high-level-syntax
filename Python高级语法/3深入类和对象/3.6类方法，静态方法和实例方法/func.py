@@ -24,7 +24,6 @@ class Date:
 new_Day = Date(2018, 12, 31)
 new_Day.tomorrow()
 print("sss", new_Day)
-
 date_str = "2018-12-31"
 new_day = Date.parse_from_string(date_str)
 print("sssddddd", new_day)

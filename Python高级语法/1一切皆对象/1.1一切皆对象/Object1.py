@@ -1,11 +1,13 @@
 def ask(name="boby"):
     print(name)
 
+
 class Person:
     def __init__(self):
         print('bobby')
 
-my_func=ask
+
+my_func = ask
 my_func('赵强')
 my_class = Person
 my_class()
@@ -29,10 +31,13 @@ obj_list = []
 obj_list.append(ask)
 obj_list.append(Person)
 for item in obj_list:
-    print(item())   #函数没有返回值 所以说打印函数就会返回none值 但和执行函数不一样的
+    print(item())  # 函数没有返回值 所以说打印函数就会返回none值 但和执行函数不一样的
+
 
 def decorator_func():
     print("desc")
     return ask
+
+
 ma = decorator_func()
 ma()

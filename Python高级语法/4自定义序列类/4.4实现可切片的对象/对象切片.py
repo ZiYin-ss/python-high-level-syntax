@@ -1,4 +1,6 @@
 import numbers
+
+
 class Group:
     def __init__(self, group_name, company_name, staffs):
         self.group_name = group_name
@@ -10,11 +12,11 @@ class Group:
 
     def __getitem__(self, item):
         cls = type(self)
-        if isinstance(item,slice):
-            return cls(group_name=self.group_name,company_name=self.company_name,staffs=self.staffs[item])
-        elif isinstance(item,numbers.Integral):
+        if isinstance(item, slice):
+            return cls(group_name=self.group_name, company_name=self.company_name, staffs=self.staffs[item])
+        elif isinstance(item, numbers.Integral):
             #  整数直接取出来得是值啊  但是接收得是数组
-            return cls(group_name=self.group_name,company_name=self.company_name,staffs=[self.staffs[item]])
+            return cls(group_name=self.group_name, company_name=self.company_name, staffs=[self.staffs[item]])
 
     def __len__(self):
         return len(self.staffs)

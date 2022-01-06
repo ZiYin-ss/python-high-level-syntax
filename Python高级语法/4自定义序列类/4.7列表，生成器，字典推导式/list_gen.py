@@ -44,19 +44,18 @@ for item in odd_list:
 odd_lis = list(odd_list)  # 可以直接这样把生成器改为list
 print('------------------------------------------')
 
-
 """字典推导式 """
 """
     和list很像 
     注意 字典取key value的话 你得字典.items()
 """
-my_dict={"bobby1":22,"bobby2":23,'imooc.com':5}
-reversed_dict = {value:key for key,value in my_dict.items() }
+my_dict = {"bobby1": 22, "bobby2": 23, 'imooc.com': 5}
+reversed_dict = {value: key for key, value in my_dict.items()}
 print(reversed_dict)
 print('------------------------------------------')
 
 """集合推导式"""
-my_set = {key for key,value in my_dict.items() }
+my_set = {key for key, value in my_dict.items()}
 print(type(my_set))
 print(my_set)
 print('------------------------------------------')

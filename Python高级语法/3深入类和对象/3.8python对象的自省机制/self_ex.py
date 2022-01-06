@@ -1,9 +1,9 @@
-
 class Person:
-   name = "user"
+    name = "user"
+
 
 class Student(Person):
-    def __init__(self,school_name):
+    def __init__(self, school_name):
         self.school_name = school_name
 
 
@@ -26,4 +26,3 @@ print(dir(user))
     user对象的__dict__放的是self 赋值的值
     这个对象的对应的类 的类变量是放到类的__dict__中的  
 """
-

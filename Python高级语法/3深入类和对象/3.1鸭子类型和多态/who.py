@@ -17,18 +17,19 @@ class Duck(object):
 
 
 animal = Cat
-# animal().say()
+animal().say()
+Cat().say()
 
-animal_list = [Cat,Dog,Duck]
+animal_list = [Cat, Dog, Duck]
 for i in animal_list:
     i().say()
     # 每个类都有一个共同的方法 叫say 叫多态
     # 所有类 都有一个共同的方法 方法名字也一样 这样这种类就为一种类型 这个就是多态(say做什么又不一样)
 
-a = ["bobby1","bobby2"]
-b = ["bobby2","bobby1"]
-name_tuple = ["bobby3","bobby4"]
-name_set = set()     # 这个就是集合的关键字啊 set() 放这 就代表name_set是一个集合
+a = ["bobby1", "bobby2"]
+b = ["bobby2", "bobby1"]
+name_tuple = ["bobby3", "bobby4"]
+name_set = set()  # 这个就是集合的关键字啊 set() 放这 就代表name_set是一个集合
 name_set.add("bobby5")
 name_set.add("bobby6")
 a.extend(b)
@@ -38,7 +39,6 @@ a.extend(b)
 print(a)
 print(name_tuple)
 print(name_set)
-
 
 """
     看上面的注释 应该能理解什么是鸭子类型

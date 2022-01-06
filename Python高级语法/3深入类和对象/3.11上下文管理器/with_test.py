@@ -1,16 +1,16 @@
-try:
-    f_read = open('aaa.txt')
-    print("code started")
-except KeyError as e:
-    print('key error')
-else:
-    print('other error')
-finally:
-    print('finally')
-    f_read.close()
+# try:
+#     f_read = open('aaa.txt')
+#     print("code started")
+# except KeyError as e:
+#     print('key error')
+# else:
+#     print('other error')
+# finally:
+#     print('finally')
+#     f_read.close()
 
 
-class Sample():
+class Sample:
     def __enter__(self):
         #  获取资源
         return self

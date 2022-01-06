@@ -4,13 +4,13 @@ import bisect
 #  不止list 就是只要是序列就可以
 
 inter_list = []
-bisect.insort(inter_list,3)
-bisect.insort(inter_list,1)
-bisect.insort(inter_list,5)
-bisect.insort(inter_list,2)
-bisect.insort(inter_list,6)
-bisect.insort(inter_list,4)
-print(bisect.bisect(inter_list,3))
+bisect.insort(inter_list, 3)
+bisect.insort(inter_list, 1)
+bisect.insort(inter_list, 5)
+bisect.insort(inter_list, 2)
+bisect.insort(inter_list, 6)
+bisect.insort(inter_list, 4)
+print(bisect.bisect(inter_list, 3))
 print(inter_list)
 
 """
@@ -19,4 +19,6 @@ print(inter_list)
         bisect_left
         这连个是插入 是重复元素的右边或者左边 如果打印就是再列表中的索引
         比如改优先级
+    python编程技巧中我已经写过了这个库 以及一些函数的作用
 """
+

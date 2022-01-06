@@ -57,18 +57,19 @@ isinstance(com, Sized)  # 更喜欢用这种我们更喜欢判断是否是一个
             这个用的还是很多
 """
 
-
 #  实现抽象基类
 import abc
+
+
 # class CacheBase:
 #     def get(self, key):
 #         raise NotImplementedError
-#      这个地方也可以实现抽象基类 的功能 你不重新 你调用 就会报错
+#      这个地方也可以实现抽象基类 的功能 你不重写 你调用 就会报错
 #     def set(self, key, value):
 #         raise NotImplementedError
 
 
-class CacheBase(metaclass=abc.ABCMeta): # 这个metaclass必须要等于abc.xxx 不这样的话实现不了抽象基类
+class CacheBase(metaclass=abc.ABCMeta):  # 这个metaclass必须要等于abc.xxx 不这样的话实现不了抽象基类
     @abc.abstractmethod  # 加上了这个 你不重写就会报错
     def get(self, key):
         pass
@@ -76,6 +77,7 @@ class CacheBase(metaclass=abc.ABCMeta): # 这个metaclass必须要等于abc.xxx 
     @abc.abstractmethod
     def set(self, key, value):
         pass
+
 
 class RedisCache(CacheBase):
     def set(self, key, value):
