@@ -11,8 +11,9 @@ class Company:
     def add(self, staff_name):
         self.staffs.append(staff_name)
 
-    def remove(self,staff_name):
+    def remove(self, staff_name):
         self.staffs.remove(staff_name)
+
 
 if __name__ == '__main__':
     com1 = Company("aaa")

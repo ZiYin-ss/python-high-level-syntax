@@ -78,6 +78,7 @@ class ModelMetaClass(type):
         del attrs["Meta"]
         return super().__new__(cls, name, bases, attrs, **kwargs)
 
+
 """
     https://www.cnblogs.com/tkqasn/p/6524879.html 
     这里面也介绍了__init__ 和 __new__
@@ -101,10 +102,12 @@ class ModelMetaClass(type):
         彻底懂了
 
 """
+
+
 class BaseModel(metaclass=ModelMetaClass):
-    def __init__(self,*args,**kwargs):
-        for key,value in kwargs.items():
-            setattr(self,key,value)
+    def __init__(self, *args, **kwargs):
+        for key, value in kwargs.items():
+            setattr(self, key, value)
         return super(BaseModel, self).__init__()
 
     def save(self):

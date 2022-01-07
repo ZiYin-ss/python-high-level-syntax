@@ -2,7 +2,7 @@ from datetime import date
 
 
 class User:
-    def __init__(self,name,birthday,info={}):
+    def __init__(self, name, birthday, info={}):
         self.name = name
         self.birthday = birthday
         self.info = info
@@ -13,11 +13,11 @@ class User:
     def __getattribute__(self, item):
         return item
 
+
 if __name__ == '__main__':
-    user = User("bobby",date(year=1987,month=1,day=1),info={"com":"imooc"})
+    user = User("bobby", date(year=1987, month=1, day=1), info={"com": "imooc"})
     print(user.com)
     print(user.__dict__)
-
 
 """
     __getattr__  
@@ -50,5 +50,8 @@ if __name__ == '__main__':
         getattr：根据字符串去获取obj对象里的对应的方法的内存地址，加"()"括号即可执行
         setattr：通过setattr将外部的一个函数绑定到实例中
         delattr：删除一个实例或者类中的方法
-           
+        getattr(obj, name[, default]) : 访问对象的属性。
+        hasattr(obj,name) : 检查是否存在一个属性。
+        setattr(obj,name,value) : 设置一个属性。如果属性不存在，会创建一个新属性。
+        delattr(obj, name) : 删除属性。
 """

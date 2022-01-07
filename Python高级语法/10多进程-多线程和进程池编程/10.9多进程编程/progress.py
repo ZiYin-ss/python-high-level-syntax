@@ -1,8 +1,9 @@
 import time
-from concurrent.futures import ProcessPoolExecutor  #pro = ProcessPoolExecutor(2) -->task = ex.sub(xxx,xxx)
+from concurrent.futures import ProcessPoolExecutor  # pro = ProcessPoolExecutor(2) -->task = ex.sub(xxx,xxx)
 #  用法和线程池一样  上面是用下面的multiprocessing
 #  其实可以看出 ThreadPoolExecutor里面应该也用了threading
 import multiprocessing
+
 """
 import os
 fork只能用于linux/unix中
@@ -37,6 +38,7 @@ sleep的话 父进程没有退出子进程会直接执行完 然后这个时候�
     
 """
 
+
 def get_html(n):
     time.sleep(n)
     print("sub_progress success")
@@ -52,21 +54,21 @@ if __name__ == "__main__":
     # progress.join()
     # print("main progress end")
 
-    #使用进程池
+    # 使用进程池
     pool = multiprocessing.Pool(multiprocessing.cpu_count())  # 最好是和cpu数一样性能最高
     result = pool.apply_async(get_html, args=(3,))
 
-    #等待所有任务完成
+    # 等待所有任务完成
     pool.close()  # 调用join之前 必须要把线程池关闭 让他不再接收新的 因为都等待完成了你还接收有什么意思呢
-    pool.join()  #等待任务完成
+    pool.join()  # 等待任务完成
 
     print(result.get())  # 任务执行完之后返回结果呢
 
-    #imap
-    for result in pool.imap(get_html, [1,5,3]):  # 完成的顺序和添加的是一样的 和map一样啊
+    # imap
+    for result in pool.imap(get_html, [1, 5, 3]):  # 完成的顺序和添加的是一样的 和map一样啊
         print("{} sleep success".format(result))
 
-    for result in pool.imap_unordered(get_html, [1,5,3]): #
+    for result in pool.imap_unordered(get_html, [1, 5, 3]):  #
         print("{} sleep success".format(result))
 
 """
@@ -81,9 +83,7 @@ if __name__ == "__main__":
 
 """
 
-
 """
     多进程用爬虫例子
         是不是把页码给函数 开多进程抓取啊 
 """
-

@@ -1,6 +1,7 @@
 import threading
 import time
 
+
 class GetDetailHtml(threading.Thread):
     def __init__(self, name):  # 实现多线程用类的方式的时候 最好还是实现一下super() 调用一下父类的init方法
         super().__init__(name=name)
@@ -39,11 +40,4 @@ if __name__ == '__main__':
         线程池用方法一
     """
 
-
     print(time.time())
-
-
-
-
-
-

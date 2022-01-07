@@ -15,7 +15,7 @@ if __name__ == '__main__':
     tasks = [get_html("http://www.imooc.com") for i in range(10)]  # 多任务放到列表中了
 
     # loop.run_until_complete(get_html("http://www.imooc.com"))  执行单个任务
-    loop.run_until_complete(asyncio.wait(tasks)) # 把多任务放到这个事件循环中  用wait
+    loop.run_until_complete(asyncio.wait(tasks))  # 把多任务放到这个事件循环中  用wait
     # 这个会等到函数执行之后才会print 类似与 线程的join方法执行完成
 
     print(time.time() - start_time)

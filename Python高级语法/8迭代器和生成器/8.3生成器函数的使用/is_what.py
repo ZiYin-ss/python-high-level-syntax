@@ -2,18 +2,18 @@
 def gen_func():
     yield 1
 
+
 #   惰性求值 延迟求值提供了可能
 #  为什么这样说呢 因为只有计算值的时候才会产生值 意思和当年自己看生成器时候说的一句话很像 保存产生值的表达式也可以保存值
 
 
 def gen_fib(index):
     re_list = []
-    n,a,b = 0,0,1
-    while n<index:
+    n, a, b = 0, 0, 1
+    while n < index:
         yield b
-        a,b = b,a+b
-        n+=1
-
+        a, b = b, a + b
+        n += 1
 
 
 def func():

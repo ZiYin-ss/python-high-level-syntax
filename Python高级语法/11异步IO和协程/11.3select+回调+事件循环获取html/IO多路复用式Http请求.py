@@ -12,6 +12,7 @@ urls = ["http://www.baidu.com"]
 """为什么加上这个呢 因为当抓取完了一个url会将他删除掉 不删除是不是重复抓取啊 会显示错误 是无效参数 因为这个地方不是阻塞的 会第二次循环"""
 stop = False
 
+
 class Fetcher:
     def connect(self, key):
         #  需要注销掉监控的这个事件 key是默认传过来这个事件的标识

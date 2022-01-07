@@ -10,7 +10,6 @@ def get_url(url):
     if path == "":
         path = "/"
 
-
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client.setblocking(False)
     """
@@ -19,7 +18,6 @@ def get_url(url):
             这个过程就是前面说的不断执行的过程 消耗cpu
             然后这个非阻塞式使用的还是说接下来要执行的操作是计算或者IO操作的还是比较好的
             这个是真的理解了 要是不写一遍代码怎么能知道呢
-            
     """
     try:
         client.connect((host, 80))
@@ -48,13 +46,15 @@ def get_url(url):
     print(html_data)
     client.close()
 
+
 if __name__ == "__main__":
     import time
+
     start_time = time.time()
     for url in range(20):
         url = "http://shop.projectsedu.com/goods/{}/".format(url)
         get_url(url)
-    print(time.time()-start_time)
+    print(time.time() - start_time)
 
 """
     python中常见的IO操作

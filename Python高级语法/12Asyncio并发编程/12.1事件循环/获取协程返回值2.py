@@ -10,7 +10,7 @@ async def get_html(url):
     return "bobby"
 
 
-def callback(url,future):  # 这个参数就是get_future
+def callback(url, future):  # 这个参数就是get_future
     print(url)
     print("赵强很帅")
 
@@ -21,7 +21,7 @@ if __name__ == '__main__':
     get_future = asyncio.ensure_future(get_html("http://www.imooc.com"))  # 这个会自己添加到循环里面 执行任务
     # task = loop.create_task(get_html("http://www.imooc.com")) 和上一行一样
 
-    get_future.add_done_callback(partial(callback,"http://www.imooc.com"))  # 事件执行完的回调函数
+    get_future.add_done_callback(partial(callback, "http://www.imooc.com"))  # 事件执行完的回调函数
     """
         partial(callback,"http://www.imooc.com")
         callback("http://www.imooc.com",future)

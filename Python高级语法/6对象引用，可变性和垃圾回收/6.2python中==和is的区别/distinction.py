@@ -10,14 +10,14 @@ b = 1
 print(id(a) == id(b))  # True
 
 
-
-class Person: #全局唯一对象
+class Person:  # 全局唯一对象
     pass
 
+
 person = Person()
-if isinstance(person,Person): #true
+if isinstance(person, Person):  # true
     print("yes")
-if type(person) is Person:  #true
+if type(person) is Person:  # true
     print("yes")
 """
     为什么可以这样用呢 类本身也是一个对象 全局唯一对象  type的时候指向这个Person

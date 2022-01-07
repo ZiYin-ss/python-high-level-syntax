@@ -17,8 +17,8 @@ def get_html(times):
 
 executor = ThreadPoolExecutor(max_workers=2)
 #  通过submit函数提交执行的函数到线程池中
-task1 = executor.submit(get_html, (3))
-task2 = executor.submit(get_html, (2))
+task1 = executor.submit(get_html, 3)
+task2 = executor.submit(get_html, 2)
 
 #  futures的done方法 用于判断某个任务是否完成
 print(task2.done())
@@ -28,12 +28,7 @@ print(task1.done())
 #  到这我想说一句这个多线程真的很抽象 你看不见摸不着  但是又实际存在  有一句话就是说 线程就是给个函数 他自己去执行
 print(task1.result())
 
-
-
 print(task2.cancel())  # 取消任务 但是开始了就无法取消了
-
-
-
 
 #  要获取已经成功的task的返回
 urls = [3, 4, 2]
@@ -46,17 +41,11 @@ for future in as_completed(all_task):
     data = future.result()  # 因为是实例 得.result拿到结果
     print(data)
 
-
-
-
 # executor获取已经完成的task  原理和上面一样的  map函数就不说了 executor用了多线程 然后直接返回了执行任务的值
 for data in executor.map(get_html, urls):
     #  但是这个返回的 和urls里面的顺序一样 假如2秒在3秒后面 还是会先返回3秒再返回2秒
     #  注意上面的是那个执行完了返回那个了
     print(data)
-
-
-
 
 wait(all_task)  # 等这个列表里面的线程执行完
 

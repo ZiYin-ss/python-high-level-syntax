@@ -8,10 +8,10 @@ import socket
     
     下面严格遵守这个文件夹下面那个图片写的 
 """
-server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)  # 这个地方主要就是确定协议
-server.bind(('0.0.0.0',8000))  # 绑定地址
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # 这个地方主要就是确定协议
+server.bind(('0.0.0.0', 8000))  # 绑定地址
 server.listen()
-sock,addr = server.accept()
+sock, addr = server.accept()
 
 #  获取从客户端发送的数据
 data = sock.recv(1024)
@@ -19,9 +19,6 @@ print(data.decode('utf8'))
 sock.send("hello {}".format(data.decode('utf8')).encode('utf8'))
 server.close()
 sock.close()
-
-
-
 
 """
     Django的框架是不提供Socket  是Server端编程 

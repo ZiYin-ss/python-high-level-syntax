@@ -1,11 +1,12 @@
 import socket
 import threading
 
-server = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-server.bind(('0.0.0.0',8000))
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind(('0.0.0.0', 8000))
 server.listen()
 
-def hand_sock(sock,addr):
+
+def hand_sock(sock, addr):
     while True:
         data = sock.recv(1024)
         print(data.decode('utf8'))
@@ -35,9 +36,7 @@ while True:
     #  第一个来了 创建了这个函数 一直执行
     #  第二个来了 又创建了一次 然后又一直执行
 
-
     data = sock.recv(1024)
     print(data.decode('utf8'))
     re_data = input()
     sock.send(re_data.encode('utf8'))
-
